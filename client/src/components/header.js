@@ -1,20 +1,10 @@
-import {
-  Navbar,
-  NavbarBrand,
-  Container,
-  NavbarText,
-  NavItem,
-  NavLink,
-  Collapse,
-  NavbarToggler,
-  Button,
-} from "reactstrap";
-
+import { Button } from "reactstrap";
+import { useState } from "react";
 import styled from "styled-components";
-
 import logoimg from "../images/favicon.png";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
       <Logo>
@@ -23,9 +13,16 @@ const Header = () => {
         </a>
         <span> Trash Your NFT</span>
       </Logo>
-      <Button color="warning" size="lg" outline>
-        connect wallet
-      </Button>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <ConnectButton color="warning" size="lg" outline>
+          connect wallet
+        </ConnectButton>
+      </Menu>
     </Nav>
   );
 };
@@ -42,33 +39,49 @@ const Logo = styled.div`
   padding: 1rem 0;
   font-size: 1.7rem;
   font-weight: 800;
+  color: #ecdbba;
 
   img {
     width: 50px;
   }
 `;
 
-export default Header;
+const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 
-/**<Container>
-        <Navbar color="dark" dark container="md" fixed="top" expand="md" light>
-          <NavbarBrand href="/">
-            <img src={Logo} alt="tamago" />
-          </NavbarBrand>
-          <NavbarToggler className="me-2" onClick={function noRefCheck() {}} />
-          <Collapse navbar>
-            <Nav className="me-auto" navbar>
-              <NavItem>
-                <Nav href="/">
-                  <h2>Trash Your NFT</h2>
-                </Nav>
-              </NavItem>
-            </Nav>
-            <NavbarText>
-              <Button color="warning" size="lg" outline>
-                connect wallet
-              </Button>
-            </NavbarText>
-          </Collapse>
-        </Navbar>
-      </Container> */
+  span {
+    height: 2px;
+    width: 25px;
+    background: #ecdbba;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.5s ease-in;
+  }
+`;
+
+const ConnectButton = styled(Button)`
+  font-size: 24px;
+  margin-top: 20px;
+`;
+
+export default Header;

@@ -44,7 +44,7 @@ const Jumbotron = () => {
 };
 
 const ButtonContainer = styled.div`
-  padding: 2rem 2rem 2rem 0;
+  padding: 1rem 2rem 2rem 0;
 `;
 
 const Content = styled.div`
@@ -52,8 +52,11 @@ const Content = styled.div`
 
   img {
     width: auto;
-    position: absolute;
-    right: 0px;
+  }
+  @media only screen and (max-width: 900px) {
+    img {
+      overflow: hidden;
+    }
   }
 `;
 

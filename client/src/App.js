@@ -1,9 +1,12 @@
 /* Dependency import*/
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 /* Compenents import*/
-import Header from "./components/header.js";
+import Header from "./components/header";
 import Jumbotron from "./components/jumbotron";
+import ClaimPeriod from "./components/claimperiod";
+import About from "./components/about";
+import Footer from "./components/footer";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -15,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'VT323', monospace;
     color: white;
-    background-color: #212529;
+    background-color: #191919;
     
     /* Full height */
     height: 100vh;
@@ -33,6 +36,9 @@ function App() {
       <GlobalStyle />
       <Header />
       <Jumbotron />
+      <ClaimPeriod />
+      <About />
+      <Footer />
     </>
   );
 }
