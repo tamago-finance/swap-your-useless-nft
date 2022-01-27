@@ -10,9 +10,9 @@ const Jumbotron = () => {
           <Col>
             <Content>
               <div>
-                <h2>
+                <h3>
                   Get Your <span style={{ color: "red" }}>FREE!! </span> Ang Pow
-                </h2>
+                </h3>
                 <h3>Red Packet by Trashing Junk NFT</h3>
               </div>
             </Content>
@@ -45,10 +45,10 @@ const ButtonContainer = styled.div`
 `;
 const Content = styled.div`
   display: flex;
-
-  img {
-    width: auto;
+  h3 {
+    font-size: 2rem;
   }
+
   @media only screen and (max-width: 600px) {
     justify-content: center;
     text-align: center;

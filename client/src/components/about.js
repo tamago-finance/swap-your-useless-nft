@@ -40,9 +40,11 @@ const About = () => {
 };
 
 const Content = styled.div`
+  font-size: 1.5rem;
   h3 {
     text-decoration: underline;
     color: #ecdbba;
+    font-size: 2rem;
   }
   p {
     padding: 5% 0;

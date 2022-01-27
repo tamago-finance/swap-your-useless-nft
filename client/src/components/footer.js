@@ -33,7 +33,8 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 
   @media only screen and (max-width: 600px) {
-    font-size: 10px;
+    justify-content: center;
+    text-align: center;
   }
 
   a {
