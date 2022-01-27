@@ -44,6 +44,9 @@ const Content = styled.div`
     text-decoration: underline;
     color: #ecdbba;
   }
+  p {
+    padding: 5% 0;
+  }
 `;
 
 export default About;
