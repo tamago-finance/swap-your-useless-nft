@@ -1,6 +1,17 @@
 import { Container, Table } from "reactstrap";
 import styled from "styled-components";
 
+/******************
+ Styled-components
+ ******************/
+const Title = styled.div`
+  text-align: center;
+  color: #ecdbba;
+`;
+
+/*****
+ Code
+ *****/
 const ClaimPeriod = () => {
   return (
     <>
@@ -33,10 +44,5 @@ const ClaimPeriod = () => {
     </>
   );
 };
-
-const Title = styled.div`
-  text-align: center;
-  color: #ecdbba;
-`;
 
 export default ClaimPeriod;

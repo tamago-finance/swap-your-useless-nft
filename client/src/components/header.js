@@ -3,30 +3,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import logoimg from "../images/favicon.png";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <Nav>
-      <Logo>
-        <a href="/">
-          <img src={logoimg} alt="tamago" />
-        </a>
-        <span> Trash Your NFT</span>
-      </Logo>
-      <Hamburger onClick={() => setIsOpen(!isOpen)}>
-        <span />
-        <span />
-        <span />
-      </Hamburger>
-      <Menu isOpen={isOpen}>
-        <ConnectButton color="warning" size="lg" outline>
-          connect wallet
-        </ConnectButton>
-      </Menu>
-    </Nav>
-  );
-};
-
+/******************
+ Styled-components
+ ******************/
 const Nav = styled.div`
   padding: 0 2rem;
   display: flex;
@@ -82,5 +61,32 @@ const Menu = styled.div`
 const ConnectButton = styled(Button)`
   margin-top: 20px;
 `;
+
+/*****
+ Code
+ *****/
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+      <Logo>
+        <a href="/">
+          <img src={logoimg} alt="tamago" />
+        </a>
+        <span> Trash Your NFT</span>
+      </Logo>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <ConnectButton color="warning" size="lg" outline>
+          connect wallet
+        </ConnectButton>
+      </Menu>
+    </Nav>
+  );
+};
 
 export default Header;

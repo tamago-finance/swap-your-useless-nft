@@ -1,5 +1,33 @@
 import styled from "styled-components";
 
+/******************
+ Styled-components
+ ******************/
+const Wrapper = styled.div`
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 600px) {
+    justify-content: center;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: initial;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+/*****
+ Code
+ *****/
 const Footer = () => {
   return (
     <Wrapper>
@@ -24,27 +52,5 @@ const Footer = () => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-  @media only screen and (max-width: 600px) {
-    justify-content: center;
-    text-align: center;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: initial;
-
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`;
 
 export default Footer;

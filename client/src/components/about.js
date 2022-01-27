@@ -1,6 +1,24 @@
 import { Container, Col, Row, Button } from "reactstrap";
 import styled from "styled-components";
 
+/******************
+ Styled-components
+ ******************/
+const Content = styled.div`
+  font-size: 1.5rem;
+  h3 {
+    text-decoration: underline;
+    color: #ecdbba;
+    font-size: 2rem;
+  }
+  p {
+    padding: 5% 0;
+  }
+`;
+
+/*****
+ Code
+ *****/
 const About = () => {
   return (
     <>
@@ -38,17 +56,5 @@ const About = () => {
     </>
   );
 };
-
-const Content = styled.div`
-  font-size: 1.5rem;
-  h3 {
-    text-decoration: underline;
-    color: #ecdbba;
-    font-size: 2rem;
-  }
-  p {
-    padding: 5% 0;
-  }
-`;
 
 export default About;

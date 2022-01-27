@@ -2,6 +2,41 @@ import { Container, Col, Row, Button } from "reactstrap";
 import styled from "styled-components";
 import illust from "../images/img1.png";
 
+/******************
+ Styled-components
+ ******************/
+const ButtonContainer = styled.div`
+  padding: 1rem 2rem 2rem 0;
+`;
+const Content = styled.div`
+  display: flex;
+  h3 {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    justify-content: center;
+    text-align: center;
+  }
+`;
+
+const ImgContent = styled.div`
+  display: flex;
+  overflow: visible;
+
+  img {
+  }
+  @media only screen and (max-width: 900px) {
+    padding-bottom: 20px;
+    img {
+      overflow: hidden;
+    }
+  }
+`;
+
+/*****
+ Code
+ *****/
 const Jumbotron = () => {
   return (
     <>
@@ -39,34 +74,5 @@ const Jumbotron = () => {
     </>
   );
 };
-
-const ButtonContainer = styled.div`
-  padding: 1rem 2rem 2rem 0;
-`;
-const Content = styled.div`
-  display: flex;
-  h3 {
-    font-size: 2rem;
-  }
-
-  @media only screen and (max-width: 600px) {
-    justify-content: center;
-    text-align: center;
-  }
-`;
-
-const ImgContent = styled.div`
-  display: flex;
-  overflow: visible;
-
-  img {
-  }
-  @media only screen and (max-width: 900px) {
-    padding-bottom: 20px;
-    img {
-      overflow: hidden;
-    }
-  }
-`;
 
 export default Jumbotron;
