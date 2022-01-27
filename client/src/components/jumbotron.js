@@ -8,20 +8,17 @@ const Jumbotron = () => {
       <Container>
         <Row md="2" xs="1">
           <Col>
-            <div>
-              <h2>
-                Get Your <span style={{ color: "red" }}>FREE!! </span> Ang Pow
-              </h2>
-              <h3>Red Packet by Trashing Junk NFT</h3>
-            </div>
+            <Content>
+              <div>
+                <h2>
+                  Get Your <span style={{ color: "red" }}>FREE!! </span> Ang Pow
+                </h2>
+                <h3>Red Packet by Trashing Junk NFT</h3>
+              </div>
+            </Content>
             <Content>
               <ButtonContainer>
-                <Button
-                  cssModule={{ margin: "0 1rem" }}
-                  color="warning"
-                  size="lg"
-                  outline
-                >
+                <Button color="warning" size="lg" outline>
                   Trash
                 </Button>
               </ButtonContainer>
@@ -33,9 +30,9 @@ const Jumbotron = () => {
             </Content>
           </Col>
           <Col>
-            <Content>
+            <ImgContent>
               <img src={illust} alt="Angpow" />
-            </Content>
+            </ImgContent>
           </Col>
         </Row>
       </Container>
@@ -46,14 +43,26 @@ const Jumbotron = () => {
 const ButtonContainer = styled.div`
   padding: 1rem 2rem 2rem 0;
 `;
-
 const Content = styled.div`
   display: flex;
 
   img {
     width: auto;
   }
+  @media only screen and (max-width: 600px) {
+    justify-content: center;
+    text-align: center;
+  }
+`;
+
+const ImgContent = styled.div`
+  display: flex;
+  overflow: visible;
+
+  img {
+  }
   @media only screen and (max-width: 900px) {
+    padding-bottom: 20px;
     img {
       overflow: hidden;
     }

@@ -9,15 +9,14 @@ const About = () => {
           <Col>
             <Content>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit duis nam
-                cubilia turpis aptent, auctor vel felis euismod integer
-                ridiculus maecenas vehicula litora luctus nisi. Lacus duis proin
-                himenaeos mauris ornare
+                Vote your favorite worthless NFT asset address on Polygon and
+                Ethereum Mainnet on following Google Form, once reached
+                significantly votes we will add it into whitelist.
               </p>
             </Content>
           </Col>
           <Content>
-            <h3>How to get Agpow</h3>
+            <h3>How to get Ang Pow</h3>
             <ol>
               <li>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit duis nam
@@ -43,6 +42,7 @@ const About = () => {
 const Content = styled.div`
   h3 {
     text-decoration: underline;
+    color: #ecdbba;
   }
 `;
 

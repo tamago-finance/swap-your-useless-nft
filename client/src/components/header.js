@@ -80,7 +80,6 @@ const Menu = styled.div`
 `;
 
 const ConnectButton = styled(Button)`
-  font-size: 24px;
   margin-top: 20px;
 `;
 

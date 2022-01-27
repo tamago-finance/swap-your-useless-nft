@@ -5,9 +5,9 @@ const ClaimPeriod = () => {
   return (
     <>
       <Container>
-        <Content>
+        <Title>
           <h2>Claim Period</h2>
-        </Content>
+        </Title>
         <Table bordered dark hover size="sm">
           <thead>
             <tr>
@@ -34,9 +34,9 @@ const ClaimPeriod = () => {
   );
 };
 
-const Content = styled.div`
+const Title = styled.div`
   text-align: center;
-  padding-top: 20px;
+  color: #ecdbba;
 `;
 
 export default ClaimPeriod;
