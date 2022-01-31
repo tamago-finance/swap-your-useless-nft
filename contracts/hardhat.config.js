@@ -33,17 +33,32 @@ module.exports = {
     },
   },
   networks: {
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    hardhat: {
+      allowUnlimitedContractSize: true,
+      // forking: {
+      //   url: process.env.POLYGON_URL,
+      //   blockNumber: 20480699,
+      // },
     },
+    polygon: {
+      allowUnlimitedContractSize: true,
+      url: process.env.POLYGON_URL,
+      accounts: [process.env.PRIVATEKEY],
+    },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
+    },
+  },
+  mocha: {
+    timeout: 1200000,
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.POLYGON_API_KEY,
   },
 }
