@@ -18,7 +18,12 @@ function ClaimModal({ toggleClaimModal, claimVisible }) {
         <ModalBody style={{ color: "#000" }}>
           <div>
             <label>Asset Address</label>
-            <Input valid readOnly placeholder="x3dsadsakijis32i9s" />
+            <Input
+              valid={false}
+              invalid={true}
+              readOnly
+              placeholder="x3dsadsakijis32i9s"
+            />
           </div>
           <div>
             <label>Token Id</label>
