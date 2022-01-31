@@ -1,6 +1,9 @@
 import { Container, Col, Row, Button } from "reactstrap";
 import styled from "styled-components";
 import illust from "../images/img1.png";
+import { useState } from "react";
+
+import ClaimModal from "./modals/ClaimModal";
 
 /******************
  Styled-components
@@ -38,6 +41,11 @@ const ImgContent = styled.div`
  Code
  *****/
 const Jumbotron = () => {
+  const [claimVisible, setClaimVisible] = useState(false);
+  const toggleClaimModal = () => {
+    setClaimVisible(!claimVisible);
+  };
+
   return (
     <>
       <Container>
@@ -51,14 +59,18 @@ const Jumbotron = () => {
                 <h3>Red Packet by Trashing Junk NFT</h3>
               </div>
             </Content>
+            <ClaimModal
+              toggleClaimModal={toggleClaimModal}
+              claimVisible={claimVisible}
+            />
             <Content>
               <ButtonContainer>
-                <Button color="warning" size="lg" outline>
+                <Button color="warning" size="lg" onClick={toggleClaimModal}>
                   Trash
                 </Button>
               </ButtonContainer>
               <ButtonContainer>
-                <Button color="info" size="lg" outline>
+                <Button color="info" size="lg">
                   Vote
                 </Button>
               </ButtonContainer>
