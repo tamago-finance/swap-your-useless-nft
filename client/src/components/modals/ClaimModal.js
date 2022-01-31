@@ -1,24 +1,41 @@
 import React from "react";
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Input,
+} from "reactstrap";
 
-function ClaimModal() {
+function ClaimModal({ toggleClaimModal, claimVisible }) {
   return (
     <>
-      <Modal toggle={function noRefCheck() {}}>
-        <ModalHeader toggle={function noRefCheck() {}}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+      <Modal centered isOpen={claimVisible} toggle={toggleClaimModal}>
+        <ModalHeader style={{ color: "#000" }} toggle={toggleClaimModal}>
+          Trash Your NFT
+        </ModalHeader>
+        <ModalBody style={{ color: "#000" }}>
+          <div>
+            <label>Asset Address</label>
+            <Input valid readOnly placeholder="x3dsadsakijis32i9s" />
+          </div>
+          <div>
+            <label>Token Id</label>
+            <Input valid />
+          </div>
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={function noRefCheck() {}}>
-            Do Something
+            Approve
           </Button>{" "}
-          <Button onClick={function noRefCheck() {}}>Cancel</Button>
+          <Button
+            style={{ color: "white" }}
+            color="warning"
+            onClick={function noRefCheck() {}}
+          >
+            Trash
+          </Button>
         </ModalFooter>
       </Modal>
     </>
