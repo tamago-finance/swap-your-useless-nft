@@ -1,4 +1,4 @@
-import { Container, Col, Row, Button } from "reactstrap";
+import { Container, Col, Row, Button, Modal } from "reactstrap";
 import styled from "styled-components";
 import illust from "../images/img1.png";
 
@@ -53,12 +53,12 @@ const Jumbotron = () => {
             </Content>
             <Content>
               <ButtonContainer>
-                <Button color="warning" size="lg" outline>
+                <Button color="warning" size="lg">
                   Trash
                 </Button>
               </ButtonContainer>
               <ButtonContainer>
-                <Button color="info" size="lg" outline>
+                <Button color="info" size="lg">
                   Vote
                 </Button>
               </ButtonContainer>
