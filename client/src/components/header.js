@@ -2,6 +2,10 @@ import { Button } from "reactstrap";
 import { useState } from "react";
 import styled from "styled-components";
 import logoimg from "../images/favicon.png";
+import { useWeb3React } from "@web3-react/core";
+import { shortAddress } from "./helper";
+
+import ConnecWalletModal from "./modals/ConnecWalletModal";
 
 /******************
  Styled-components
@@ -62,13 +66,34 @@ const ConnectButton = styled(Button)`
   margin-top: 20px;
 `;
 
+const Address = styled(ConnectButton)`
+  cursor: default;
+`;
+const Network = styled(Address)`
+  margin-right: 5px;
+  background-color: #6d6b76;
+  width: 120px;
+`;
+
 /*****
  Code
  *****/
 const Header = () => {
+  const { account, deactivate, library, chainId } = useWeb3React();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const [connectWalletVisible, setconnectWalletVisible] = useState(false);
+  const toggleConnectWallet = () => {
+    setconnectWalletVisible(!connectWalletVisible);
+  };
+
   return (
     <Nav>
+      <ConnecWalletModal
+        toggleConnectWallet={toggleConnectWallet}
+        connectWalletVisible={connectWalletVisible}
+      />
       <Logo>
         <a href="/">
           <img src={logoimg} alt="tamago" />
@@ -81,9 +106,35 @@ const Header = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <ConnectButton color="warning" size="lg" outline>
-          connect wallet
-        </ConnectButton>
+        <div>
+          {account ? (
+            <div
+              style={{
+                marginLeft: "auto",
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
+              {(chainId === 1 || chainId === 137) && (
+                <Network>
+                  {chainId === 1 && "Mainnet"}
+                  {chainId === 137 && "Polygon"}
+                </Network>
+              )}
+              <Address>{shortAddress(account, 4, -3)}</Address>
+            </div>
+          ) : (
+            <ConnectButton
+              onClick={toggleConnectWallet}
+              color="warning"
+              size="lg"
+              outline
+              onClick={toggleConnectWallet}
+            >
+              connect wallet
+            </ConnectButton>
+          )}
+        </div>
       </Menu>
     </Nav>
   );
