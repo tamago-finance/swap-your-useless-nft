@@ -140,7 +140,7 @@ contract TrashYourNFT is
 
       ) = ILuckbox(luckbox).list(i);
       uint256 balance;
-      if (slotAddress != address(0)) {
+      if (slotAddress == address(0)) {
         balance = 0;
       } else if (slotIs1155) {
         balance = IERC1155(slotAddress).balanceOf(address(this), slotTokenId);

@@ -31,7 +31,7 @@ export const useTrashNFT = (address, account, library, tick) => {
         return Promise.reject(e.message)
       }
     },
-    [luckBoxContract, account]
+    [trashNFTContract, account]
   )
 
   useEffect(() => {}, [account, trashNFTContract, tick])

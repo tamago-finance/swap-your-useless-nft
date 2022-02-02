@@ -4,8 +4,8 @@ import { useWeb3React } from "@web3-react/core";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { Connectors } from "../../connectors";
-import useEagerConnect from "../hooks/useEagerConnect";
-import useInactiveListener from "../hooks/useInactiveListener";
+import useEagerConnect from "../../hooks/useEagerConnect";
+import useInactiveListener from "../../hooks/useInactiveListener";
 
 /******************
  Styled-components

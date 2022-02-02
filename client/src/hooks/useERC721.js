@@ -14,9 +14,9 @@ export const useERC721 = (address, account, library, tick) => {
   const [name, setName] = useState("--")
   const [symbol, setSymbol] = useState("--")
 
-  const getIsApprovedForAll = useCallback(async (luckBoxAddress) => {
+  const getIsApprovedForAll = useCallback(async (trashAddress) => {
     try {
-      const result = await erc721Contract.isApprovedForAll(account, luckBoxAddress)
+      const result = await erc721Contract.isApprovedForAll(account, trashAddress)
       return result
     } catch (e) {
       console.log(e)
@@ -24,9 +24,9 @@ export const useERC721 = (address, account, library, tick) => {
     }
   }, [erc721Contract, account])
 
-  const setApproveForAll = useCallback(async (luckBoxAddress) => {
+  const setApproveForAll = useCallback(async (trashAddress) => {
     try {
-      await erc721Contract.setApprovalForAll(luckBoxAddress, true)
+      await erc721Contract.setApprovalForAll(trashAddress, true)
     } catch (e) {
       console.log(e)
       return 0

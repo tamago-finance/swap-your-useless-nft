@@ -20,6 +20,9 @@ describe("Trash your NFT", function () {
   let alice
   let bob
 
+  let tokenIds
+  let stackTokenIds
+
   beforeEach(async () => {
     ;[admin, alice, bob, dev, treasury] = await ethers.getSigners()
 
@@ -59,8 +62,8 @@ describe("Trash your NFT", function () {
       "https://api.cryptokitties.co/kitties/{id}"
     )
 
-    const tokenIds = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    const stackTokenIds = [9, 10, 11, 12]
+    tokenIds = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    stackTokenIds = [9, 10, 11, 12]
 
     // minting ERC-721
     for (let id of tokenIds) {
@@ -77,19 +80,6 @@ describe("Trash your NFT", function () {
 
     await erc721.setApprovalForAll(luckBox721.address, true)
     await erc1155.setApprovalForAll(luckBox1155.address, true)
-
-    for (let id of tokenIds) {
-      // use 10% winning chance
-      await luckBox721.depositNft(id, 15 * 100, erc721.address, id, false)
-      await luckBox1155.depositNft(id, 15 * 100, erc1155.address, id, true)
-    }
-
-    // Stack nft to queue
-    for (let id of stackTokenIds) {
-      // use 10% winning chance
-      await luckBox721.stackNft(erc721.address, 15 * 100, id, false)
-      await luckBox1155.stackNft(erc1155.address, 15 * 100, id, true)
-    }
 
     await trashErc721.transferFrom(
       await admin.getAddress(),
@@ -131,6 +121,14 @@ describe("Trash your NFT", function () {
     })
   })
 
+  context("when no has nft on luckbox", () => {
+    it("should revert", async () => {
+      await trashContract721.setNFTAddressAllowance(trashErc721.address, true)
+      await trashContract721.deposit({ value: toEther("100") })
+      await trashContract721.connect(alice).trash(trashErc721.address, 0, false)
+    })
+  })
+
   context("when not set NFT address allowance", () => {
     it("should revert", async () => {
       await expect(
@@ -140,6 +138,21 @@ describe("Trash your NFT", function () {
   })
 
   describe("Return from luckbox with erc721", () => {
+    beforeEach(async () => {
+      for (let id of tokenIds) {
+        // use 10% winning chance
+        await luckBox721.depositNft(id, 15 * 100, erc721.address, id, false)
+        await luckBox1155.depositNft(id, 15 * 100, erc1155.address, id, true)
+      }
+
+      // Stack nft to queue
+      for (let id of stackTokenIds) {
+        // use 10% winning chance
+        await luckBox721.stackNft(erc721.address, 15 * 100, id, false)
+        await luckBox1155.stackNft(erc1155.address, 15 * 100, id, true)
+      }
+    })
+
     context("when deposit ticket and trash with erc721", () => {
       it("Should return nft trash", async function () {
         await trashContract721.setNFTAddressAllowance(trashErc721.address, true)
@@ -227,6 +240,20 @@ describe("Trash your NFT", function () {
   })
 
   describe("Return from luckbox with erc1155", () => {
+    beforeEach(async () => {
+      for (let id of tokenIds) {
+        // use 10% winning chance
+        await luckBox721.depositNft(id, 15 * 100, erc721.address, id, false)
+        await luckBox1155.depositNft(id, 15 * 100, erc1155.address, id, true)
+      }
+
+      // Stack nft to queue
+      for (let id of stackTokenIds) {
+        // use 10% winning chance
+        await luckBox721.stackNft(erc721.address, 15 * 100, id, false)
+        await luckBox1155.stackNft(erc1155.address, 15 * 100, id, true)
+      }
+    })
     context("when deposit ticket and trash with erc721", () => {
       it("Should return nft trash", async function () {
         let tx, rc, event, tokenId
