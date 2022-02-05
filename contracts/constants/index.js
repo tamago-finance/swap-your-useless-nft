@@ -1,0 +1,5 @@
+const LUCKBOX = "0x9C01E0B8227eb869B479c12665b40Cc864C787a8"
+
+module.exports = {
+	LUCKBOX
+}
