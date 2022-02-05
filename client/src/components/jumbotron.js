@@ -1,6 +1,6 @@
 import { Container, Col, Row, Button } from "reactstrap";
 import styled from "styled-components";
-import illust from "../images/img1.png";
+import illustPng from "../images/illustration-1.png";
 import { useState } from "react";
 
 import ClaimModal from "./modals/ClaimModal";
@@ -25,17 +25,27 @@ const Content = styled.div`
 
 const ImgContent = styled.div`
   display: flex;
-  overflow: visible;
+  overflow: visible; 
 
   img {
   }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 600px) {
     padding-bottom: 20px;
     img {
       overflow: hidden;
     }
   }
 `;
+
+const Illustration = styled.img.attrs( () => ({ src : illustPng , alt : "illustration" }))`
+  width: 60%; 
+  margin: auto;
+
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+  }
+
+`
 
 /*****
  Code
@@ -78,7 +88,7 @@ const Jumbotron = () => {
           </Col>
           <Col>
             <ImgContent>
-              <img src={illust} alt="Angpow" />
+              <Illustration/>
             </ImgContent>
           </Col>
         </Row>

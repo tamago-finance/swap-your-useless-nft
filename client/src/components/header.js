@@ -1,7 +1,8 @@
 import { Button } from "reactstrap";
 import { useState } from "react";
+import { Container } from "reactstrap"
 import styled from "styled-components";
-import logoimg from "../images/favicon.png";
+import logoPng from "../images/logo-color.png";
 import { useWeb3React } from "@web3-react/core";
 import { shortAddress } from "./helper";
 
@@ -10,7 +11,7 @@ import ConnecWalletModal from "./modals/ConnecWalletModal";
 /******************
  Styled-components
  ******************/
-const Nav = styled.div`
+const Nav = styled(Container)`
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
@@ -27,6 +28,25 @@ const Logo = styled.div`
   img {
     width: 50px;
   }
+
+  span {
+    margin-left: 5px;
+    :hover {
+      text-decoration: underline;
+      cursor: default;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+     img {
+       width: 40px;
+     }
+     span {
+       font-size: 20px;
+       margin-left: 0px;
+     }
+  }
+
 `;
 
 const Hamburger = styled.div`
@@ -75,6 +95,18 @@ const Network = styled(Address)`
   width: 120px;
 `;
 
+const LogoIcon = styled.img.attrs( () => ({
+  src: logoPng,
+  alt : "Tamago"
+}))`
+  padding: 3px;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0px;
+  }
+
+`
+
 /*****
  Code
  *****/
@@ -96,9 +128,9 @@ const Header = () => {
       />
       <Logo>
         <a href="/">
-          <img src={logoimg} alt="tamago" />
+          <LogoIcon/>
         </a>
-        <span> Trash Your NFT</span>
+        <span>Swap Your Useless NFT</span>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -131,7 +163,7 @@ const Header = () => {
               outline
               onClick={toggleConnectWallet}
             >
-              connect wallet
+              Connect Wallet
             </ConnectButton>
           )}
         </div>

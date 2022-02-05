@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { Container } from "reactstrap"
 
 /******************
  Styled-components
  ******************/
-const Wrapper = styled.div`
+const Wrapper = styled(Container)`
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
