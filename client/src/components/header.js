@@ -88,11 +88,14 @@ const ConnectButton = styled(Button)`
 
 const Address = styled(ConnectButton)`
   cursor: default;
+  font-size: 20px;
+  letter-spacing: -0.5px;
 `;
 const Network = styled(Address)`
   margin-right: 5px;
-  background-color: #6d6b76;
+  background-color: ${props => props.color ? props.color : "#6d6b76"};
   width: 120px;
+
 `;
 
 const LogoIcon = styled.img.attrs( () => ({
@@ -148,7 +151,7 @@ const Header = () => {
               }}
             >
               {(chainId === 1 || chainId === 137) && (
-                <Network>
+                <Network color={ chainId === 137 ? "#8E2DE2" : "#db36a4"}>
                   {chainId === 1 && "Mainnet"}
                   {chainId === 137 && "Polygon"}
                 </Network>

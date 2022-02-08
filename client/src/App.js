@@ -7,6 +7,7 @@ import Jumbotron from "./components/jumbotron";
 import ClaimPeriod from "./components/claimperiod";
 import About from "./components/about";
 import Footer from "./components/footer";
+import Notification from "./components/notification"
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -33,8 +34,9 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle /> 
       <Header />
+       <Notification/>
       <Jumbotron />
       <ClaimPeriod />
       <About />
