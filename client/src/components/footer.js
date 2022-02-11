@@ -44,7 +44,7 @@ const Footer = () => {
         <span> All Right Reserved</span>
       </div>
       <div>
-        <a href="">Twitter</a>
+        <a href="https://twitter.com/TamagoFinance" target="_blank">Twitter</a>
         <span> | </span>
         <a href="">Telegram</a>
         <span> | </span>
